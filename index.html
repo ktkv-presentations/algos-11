@@ -22,7 +22,7 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<h1>Комбинированные типы данных </h1>
+				<h1>Комбинированные типы данных</h1>
 				<img data-type="qrcode" alt="https://ktkv-presentations.github.io/algos-11/">
 			</section>
 			<section>
@@ -56,7 +56,113 @@ student = {
 			</section>
 			<section>
 				<h1>Пример записи сериализованных данных</h1>
+				<pre>
+				<code class="python">
+import json
+
+student = {
+    "name": "Иван Иванов",
+    "age": 18,
+    "group": "ИСР22",
+    "gpa": 4.7
+}
+
+with open("student.json", "w") as file:
+    json.dump(student, file)
+					</code>
+				</pre>
 			</section>
+			</section>
+			<section>
+				<section>
+					<h1>файлы и их виды</h1>
+					<p>структурированное хранилище данных на диске или другом внешнем устройстве</p>
+					<h4>примеры текстовых файлов</h4>
+					<div class="grid grid-cols-1 gap-4">
+						<div class="border-b">
+							<code class="plaintext">.txt</code> - обычные текстовые файлы
+						</div>
+						<div class="border-b">
+							<code class="plaintext">.csv</code> - файлы с разделителями, такие как запятые или табуляции
+						</div>
+						<div class="border-b">
+							<code class="plaintext">.json</code>, <code class="plaintext">.xml</code> - файлы для хранения структурированных данных
+						</div>
+					</div>
+					<pre><code class="python">
+with open("example.txt", "w") as file:
+		file.write("Hello, World!")
+					</code></pre>
+				</section>
+				<section>
+					<h1>Файлы и их виды</h1>
+					<h4>Бинарные файлы</h4>
+<div class="grid grid-cols-1 gap-4">
+						<div class="border-b">
+							<code class="plaintext">.bin</code> - файлы с произвольными бинарными данными
+						</div>
+						<div class="border-b">
+							<code class="plaintext">.exe</code> - исполняемые файлы
+						</div>
+						<div class="border-b">
+							<code class="plaintext">.jpg</code>, <code class="plaintext">.png</code> - файлы изображений
+						</div>
+					</div>
+<pre><code class="python">
+with open("example.bin", "wb") as file:
+    file.write(b'\x00\x01\x02\x03')
+					</code></pre>
+				</section>
+				<section>
+					<h1>Последовательный доступ</h1>
+					<p>чтение или запись данных по порядку, начиная с начала файла и двигаясь до конца</p>
+					<br>
+					<h1>Прямой доступ</h1>
+					<p>обращаться к любому месту в файле без необходимости проходить предыдущие данные</p>
+				</section>
+				<section>
+					<h1>Чтение данных из файла построчно</h1>
+					<pre><code class="python">
+# Открытие файла в режиме чтения
+with open("example.txt", "r") as file:
+		print(line.strip())  # Чтение строки и вывод на экран
+					</code></pre>
+					<p>где <code class="python">r</code> - чтение файла</p>
+				</section>
+				<section>
+					<h1>Запись данных в файл</h1>
+					<pre><code class="python">
+# Открытие файла в режиме записи (перезапись содержимого)
+with open("example.txt", "w") as file:
+    file.write("Первая строка\n")
+					</code></pre>
+					<p>где <code class="python">a</code> - режим добавления, а <code class="python">w</code> - режим записи</p>
+				</section>
+			</section>
+			<section>
+				<section><h1>Синтаксис работы с файлами в Python</h1>
+					<div class="grid grid-cols-2 gap-4">
+						<div class="border-b">
+					<code class="python">open()</code>
+					<p>открывает файл для чтения или записи</p>
+						</div><div class="border-b">
+					<code class="python">read()</code>
+					<p>считывает данные из файла</p>
+						</div><div class="border-b">
+					<code class="python">write()</code>
+					<p>записывает данные в файл</p>
+						</div><div class="border-b">
+					<code class="python">close()</code>
+					<p>закрывает файл (вручную, если не используется with)</p>
+						</div>
+					</div>
+					<pre><code class="python">
+# Чтение содержимого файла
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)
+					</code></pre>
+				</section>
 			</section>
 		</div>
 	</div>
